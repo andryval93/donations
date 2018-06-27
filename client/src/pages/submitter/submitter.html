@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Submitter</ion-title>
+    <ion-buttons end>
+      <button ion-button padding-right color="primary" (click)="goToOtherPage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-color: #E0E0E0">
+  
+  <submitter *ngFor="let submitter of submitter_items"  [submitterItem]="submitter"></submitter>
+
+</ion-content>

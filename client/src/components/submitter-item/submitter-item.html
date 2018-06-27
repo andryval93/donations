@@ -1,0 +1,26 @@
+<ion-card>
+  <ion-fab right padding-right>
+    <button ion-button icon-start clear small>
+      <ion-icon name="md-settings"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-item>
+    <ion-avatar item-start>
+      <i class={{submitterItem.$icon}}></i>
+    </ion-avatar>
+    <h2>{{submitterItem.type}}</h2>
+    <h2>{{submitterItem.$name}}</h2>
+
+  </ion-item>
+  <ion-card-content>
+    <p>{{submitterItem.description}}</p>
+  </ion-card-content>
+  <ion-row>
+    <ion-col right text-right padding-right>
+      <ion-note>
+        {{submitterItem.lastEdit}}
+      </ion-note>
+    </ion-col>
+  </ion-row>
+</ion-card>

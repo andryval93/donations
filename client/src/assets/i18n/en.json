@@ -1,0 +1,8 @@
+{
+  "HELLO": "Hello",
+  "Wizard":{
+    "FirstStepDescription": "In this first step select the type of submitter that you want create",
+    "SecondStepDescription": "",
+    "ThirdStepDescription": "In the third step show the summary of your choiche for confirm the submitter create"
+  }
+}

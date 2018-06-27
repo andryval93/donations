@@ -1,0 +1,58 @@
+<form [formGroup]="slideOneForm">
+  <ion-list>
+    <ion-item [ngClass]="{'transparentClass': settingsIxnitems.$disabled}">
+      <ion-label>Application name</ion-label>
+      <ion-input  formControlName="applicationName" [disabled]="settingsIxnitems.$disabled" type="text" value="{{settingsIxnitems.$applicationName}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Host</ion-label>
+      <ion-input formControlName="host" type="text" [disabled]="settingsIxnitems.$disabled" value="{{settingsIxnitems.$host}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Port</ion-label>
+      <ion-input formControlName="port" type="number" [disabled]="settingsIxnitems.$disabled" value="{{settingsIxnitems.$port}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input formControlName="username" type="text" [disabled]="settingsIxnitems.$disabled"  value="{{settingsIxnitems.$username}}"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input formControlName="password" type="text" [disabled]="settingsIxnitems.$disabled"  value="{{settingsIxnitems.$password}}"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>WarmStandBy</ion-label>
+      <ion-toggle disabled="true" checked="true"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>WarmStandByPort </ion-label>
+      <ion-input formControlName="warmStandByPort" [disabled]="settingsIxnitems.$disabled" type="number" value="{{settingsIxnitems.$warmStandByPort}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>WarmStandByTimeout </ion-label>
+      <ion-input formControlName="warmStandByTimeout" [disabled]="settingsIxnitems.$disabled"  type="number" value="{{settingsIxnitems.$warmStandByTimeout}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>WarmStandByAttempts</ion-label>
+      <ion-input formControlName="warmStandByAttempts" [disabled]="settingsIxnitems.$disabled"  type="number" value="{{settingsIxnitems.$warmStandByAttempts}}"></ion-input>
+    </ion-item>
+  </ion-list>
+</form>
+<div class="validation-errors">
+  <ng-container *ngFor="let validation of validation_messages.password">
+    <div class="error-message" *ngIf="slideOneForm.get('password').hasError(validation.type) || (slideOneForm.get('password').dirty || slideOneForm.get('password').touched)">
+      {{ validation.message }}
+    </div>
+  </ng-container>
+</div>

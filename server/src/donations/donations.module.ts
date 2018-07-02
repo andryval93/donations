@@ -7,7 +7,7 @@ import { DonazioniSchema } from './schemas/donations.schema';
 //MongooseModule.forRoot('mongodb://localhost/test')localconnection
 
 @Module({
-  imports: [MongooseModule.forFeature([{name: 'Donazioni',schema: DonazioniSchema}])],
+  imports: [MongooseModule.forFeature([{name: 'Donation',schema: DonazioniSchema}])],
   controllers: [DonationsController],
   providers: [DonationService],
 })

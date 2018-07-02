@@ -6,7 +6,7 @@ import { CreateDonationsDto } from './dto/create-donations.dto';
 
 @Injectable()
 export class DonationService {
-  constructor(@InjectModel('Donazioni') private readonly donetionModel: Model<Donations>) { }
+  constructor(@InjectModel('Donation') private readonly donetionModel: Model<Donations>) { }
 
   async create(createDonationsDto: CreateDonationsDto): Promise<Donations> {
     const createdDonation = new this.donetionModel(createDonationsDto);
@@ -14,6 +14,6 @@ export class DonationService {
   }
 
   async findAll(): Promise<Donations[]> {
-    return await this.donetionModel.find().exec();
+    return await this.donetionModel.find().limit(100).exec();
   }
 }

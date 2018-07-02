@@ -7,4 +7,4 @@ export const DonazioniSchema = new mongoose.Schema({
     "Donation Amount": Number,
     "Donor Cart Sequence": Number,
     "Donation Received Date": Date
-}, { collection: 'Donazioni' });
+});

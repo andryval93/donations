@@ -4,13 +4,15 @@ import { SubmittersModule } from './submitters/submitters.module';
 import { DonetionsModule} from './donations/donations.module'
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
+import { DonorsModule} from './donors/donors.module'
 
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/Donations'),
+    MongooseModule.forRoot('mongodb://localhost/Donazioni'),
     SubmittersModule,
-    DonetionsModule],
+    DonetionsModule,
+    DonorsModule],
   controllers: [AppController],
   providers: [AppService],
 })

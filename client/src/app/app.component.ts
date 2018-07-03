@@ -1,13 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
-import {TranslateService} from '@ngx-translate/core';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { AuditPage } from '../pages/audit/audit';
-import { SettingsPage } from '../pages/settings/settings';
-import { SubmitterPage } from '../pages/submitter/submitter';
+import { ListPage } from '../pages/list/list';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,17 +16,13 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, translate: TranslateService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Submitter', component: SubmitterPage },
-      { title: 'Audit', component: AuditPage },
-      { title: 'Settings', component: SettingsPage }
+      { title: 'List', component: ListPage }
     ];
 
   }

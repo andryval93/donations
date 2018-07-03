@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <title>Ionic App</title>
@@ -7,7 +8,6 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
 
-  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
   <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4e8ef7">
@@ -18,6 +18,13 @@
 
   <!-- cordova.js required for cordova apps (remove if not needed) -->
   <script src="cordova.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>  
+    // !important: You want to give this variable(var googleLoaded = false;). This is used to run multiple chart in your jade.
+    var googleLoaded = false;
+    // !important: Define which chart packages to preload.Because this package uses ChartWrappers you can use any chart type that Google supports, but if it // isn't loaded it will load it on demand. 
+    var googleChartsPackagesToLoad = ['geochart'];
+  </script>
 
   <!-- un-comment this code to enable service worker
   <script>
@@ -31,6 +38,7 @@
   <link href="build/main.css" rel="stylesheet">
 
 </head>
+
 <body>
 
   <!-- Ionic's root component and where the app will load -->
@@ -47,4 +55,5 @@
   <script src="build/main.js"></script>
 
 </body>
+
 </html>

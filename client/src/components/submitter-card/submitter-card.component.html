@@ -1,9 +1,0 @@
-<li class="flex-item">
-  <ion-label class="titleProduct" color="{{submitterCardItems.$colorText}}" style="margin-right: 0px">{{submitterCardItems.$name}}</ion-label>
-  <div class="cardProduct" [style.background-color]="submitterCardItems.$color" >
-    <img class="imageProduct" src="{{submitterCardItems.$logo}}" />
-    <ion-label color="{{submitterCardItems.$colorText}}" class="productName" style="margin-right: 0px">{{submitterCardItems.$type}}</ion-label>
-    <p  [style.color]="submitterCardItems.$colorDescription"> {{submitterCardItems.$description}}</p>
-  </div>
-  <button *ngIf="submitterCardItems.$buttonVisibility === true" color="{{submitterCardItems.$colorText}}" ion-button small ionicStepperNext padding>Next</button>
-</li>

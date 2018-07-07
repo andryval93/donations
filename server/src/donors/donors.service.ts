@@ -16,4 +16,7 @@ export class DonorsService {
   async findAll(): Promise<Donors[]> {
     return await this.donorsModel.find().limit(100).exec();
   }
+  async countTheacherofCity(city:string): Promise<number> {
+    return await this.donorsModel.count({'Donor City':city,'Donor Is Teacher':"Yes"}).exec();
+  }
 }

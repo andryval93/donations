@@ -9,14 +9,7 @@ export class HomePage {
 
   public map_ChartData = [
     ['State', 'Donations'],
-    ['US-AL', 110],
-    ['US-Ak', 150],
-    ['US-IL', 200],
-    ['US-IN', 300],
-    ['US-HI', 50],
-    ['US-IA', 20],
-    ['US-RI', 150],
-    ['US-CT', 301]
+    ["US-AL",23312],["US-AK",4519],["US-AZ",41529],["US-AR",12867],["US-CA",294695],["US-CO",32704],["US-CT",31604],["US-DE",5906],["US-FL",108828],["US-GA",63731],["US-HI",7967],["US-ID",8330],["US-IL",104381],["US-IN",43237],["US-IA",13238],["US-KS",13837],["US-KY",18929],["US-LA",24519],["US-ME",11486],["US-MD",36375],["US-MA",60730],["US-MI",60435],["US-MN",31183],["US-MS",11997],["US-MO",35820],["US-MT",5088],["US-NE",6272],["US-NV",16014],["US-NH",10259],["US-NJ",54266],["US-NM",7576],["US-NY",137957],["US-NC",84250],["US-ND",3012],["US-OH",52571],["US-OK",30133],["US-OR",29743],["US-PA",72280],["US-RI",7610],["US-SC",47043],["US-SD",4084],["US-TN",30604],["US-TX",134449],["US-UT",21589],["US-VT",3677],["US-VA",53022],["US-WA",47963],["US-WV",7497],["US-WI",33217],["US-WY",1634]
   ];
 
   public statateNameAndCode = [

@@ -220,14 +220,17 @@ export class DonorsService {
 
    
     let result: Array<[
-      string,
-      number
+      any,
+      any
     ]> = [];
 
-    for (let i = 0; i < statateNameAndCode.length; i++) {
-       await this.donorsModel.count({ 'Donor State': statateNameAndCode[i].name },(err, donors) =>{ 
+    result[0] = ['State', 'Donations'];
+
+    await this.donorsModel.collection.createIndex({"Donor State": -1})
+    for (let i = 1; i < statateNameAndCode.length +1; i++) {
+       await this.donorsModel.count({ 'Donor State': statateNameAndCode[i-1].name },(err, donors) =>{ 
         result[i] = [
-          "US-" + statateNameAndCode[i].abbreviation,
+          "US-" + statateNameAndCode[i-1].abbreviation,
           donors
         ]
       })

@@ -49,7 +49,7 @@ export class GoogleChart implements OnChanges {
                         const selectedRowValues = [];
                         if (selectedItem.row !== null) {
                             selectedRowValues.push(wrapper.getDataTable().getValue(selectedItem.row, 0));
-                            selectedRowValues.push(wrapper.getDataTable().getValue(selectedItem.row, selectedItem.column));
+                            //selectedRowValues.push(wrapper.getDataTable().getValue(selectedItem.row, selectedItem.column));
                             msg = {
                                 message: 'select',
                                 row: selectedItem.row,
@@ -58,6 +58,7 @@ export class GoogleChart implements OnChanges {
                             };
                         }
                     }
+                    console.log("Selcted item",msg)
                     self.itemSelect.emit(msg);
                 } else
                     self.itemDeselect.emit();

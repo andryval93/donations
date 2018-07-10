@@ -16,9 +16,13 @@ export class DonorsController {
   async findAll(): Promise<Donors[]> {
     return this.donorsService.findAll();
   }
-  @Get(':city')
+  /*@Get(':city')
   async CountTheacher(@Param ('city') city): Promise<number> {
     return this.donorsService.countTheacherofCity(city);
+  }*/
+  @Get (':state')
+  async AmoutState(@Param('state')state): Promise<any>{
+    return this.donorsService.AmoutState(state);
   }
 
 }

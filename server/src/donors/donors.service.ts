@@ -3,6 +3,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Donors } from './interfaces/donors.interface';
 import { CreateDonorsDto } from './dto/create-donors.dto';
+import { DonationService } from 'donations/donations.service';
+import { DonationsController } from 'donations/donations.controller';
+import { Donations } from 'donations/interfaces/donations.interface';
 
 @Injectable()
 export class DonorsService {
@@ -239,7 +242,17 @@ export class DonorsService {
     return  await result;
 
   }
-  async countTheacherofCity(city: string): Promise<number> {
+  /*async countTheacherofCity(city: string): Promise<number> {
     return await this.donorsModel.count({ 'Donor City': city, 'Donor Is Teacher': "Yes" }).exec();
+  }*/
+  async AmoutState(state: string): Promise<any[]>{
+    let n,result;
+    let sum:number;
+    console.log(state);
+    await this.donorsModel.collection.createIndex({"Donor State": -1})
+    return await this.donorsModel.find({'Donor State':state},{_id:0,'Donor ID':1}).exec();
+    };
+  
+
+    
   }
-}

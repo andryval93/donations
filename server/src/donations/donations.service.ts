@@ -16,4 +16,16 @@ export class DonationService {
   async findAll(): Promise<Donations[]> {
     return await this.donetionModel.find().limit(100).exec();
   }
+
+  async amount(donorID): Promise<number> {
+    let sum;
+    for (let i=0;i<donorID.length;i++){
+      this.donetionModel.find({'Donor ID':donorID[i]['Donor ID']},{_id:0,'Donation Amount':1},(err,s)=>{
+        sum=s[i]['Donation Amount'];
+      }
+    )
+    }
+    return sum;
+  }
+ 
 }

@@ -16,4 +16,8 @@ export class DonationsController {
   async findAll(): Promise<Donations[]> {
     return this.donationService.findAll();
   }
+  @Get(':donorID')
+  async amount(@Param('donorID')donorID): Promise<number> {
+    return this.donationService.amount(donorID);
+  }
 }

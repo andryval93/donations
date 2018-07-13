@@ -15,18 +15,30 @@ export class DonationService {
 
   async findAll(): Promise<Donations[]> {
     let a;
-    let i:number=0
+    let i: number = 0
     return await this.donetionModel.find().limit(100).exec();
   }
 
-  async amount(donorID): Promise<number> {
-    let sum:number=0;
-    let donor,s;
-    donor=await this.donetionModel.find({'Donor ID':donorID});
-    for (let i=0;i<donor.length;i++){
-      s=await this.donetionModel.find({'Donor ID':donor[i]['Donor ID']});
-        sum=sum+s[i]['Donation Amount'];
-}
-  return sum;
-}
+  async amount(donorsID): Promise<number> {
+    let sum: number = 0;
+    let donor, s;
+    await this.donetionModel.collection.createIndex({ "Donor ID": -1 })
+
+    for (let y = 1; y < donorsID.length + 1; y++) {
+      await this.donetionModel.find({ 'Donor ID': donorsID[y] }, async (err, donor) => {
+        for (let i = 0; i < donor.length; i++) {
+          s = await this.donetionModel.find({ 'Donor ID': donor[i]['Donor ID'] });
+          sum = sum + s[i]['Donation Amount'];
+        }
+      })
+    }
+    return await sum;
+
+    // donor = await this.donetionModel.find({ 'Donor ID': donorID });
+    // for (let i = 0; i < donor.length; i++) {
+    //   s = await this.donetionModel.find({ 'Donor ID': donor[i]['Donor ID'] });
+    //   sum = sum + s[i]['Donation Amount'];
+    // }
+    // return sum;
+  }
 }

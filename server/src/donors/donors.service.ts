@@ -221,7 +221,7 @@ export class DonorsService {
       }
     ];
 
-   
+
     let result: Array<[
       any,
       any
@@ -229,30 +229,30 @@ export class DonorsService {
 
     result[0] = ['State', 'Donations'];
 
-    await this.donorsModel.collection.createIndex({"Donor State": -1})
-    for (let i = 1; i < statateNameAndCode.length +1; i++) {
-       await this.donorsModel.count({ 'Donor State': statateNameAndCode[i-1].name },(err, donors) =>{ 
+    await this.donorsModel.collection.createIndex({ "Donor State": -1 })
+    for (let i = 1; i < statateNameAndCode.length + 1; i++) {
+      await this.donorsModel.count({ 'Donor State': statateNameAndCode[i - 1].name }, (err, donors) => {
         result[i] = [
-          "US-" + statateNameAndCode[i-1].abbreviation,
+          "US-" + statateNameAndCode[i - 1].abbreviation,
           donors
         ]
       })
     }
 
-    return  await result;
+    return await result;
 
   }
   /*async countTheacherofCity(city: string): Promise<number> {
     return await this.donorsModel.count({ 'Donor City': city, 'Donor Is Teacher': "Yes" }).exec();
   }*/
-  async AmoutState(state: string): Promise<any[]>{
-    let n,result;
-    let sum:number;
-    console.log(state);
-    await this.donorsModel.collection.createIndex({"Donor State": -1})
-    return await this.donorsModel.find({'Donor State':state},{_id:0,'Donor ID':1}).exec();
-    };
-  
+  async AmoutState(state: string): Promise<any[]> {
+    let n, result;
+    let sum: number;
+    //console.log(state);
+    await this.donorsModel.collection.createIndex({ "Donor State": -1 })
+    return await this.donorsModel.find({ 'Donor State': state }, { _id: 0, 'Donor ID': 1 }).limit(1000).exec();
+  };
 
-    
-  }
+
+
+}

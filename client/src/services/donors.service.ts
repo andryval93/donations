@@ -16,4 +16,16 @@ export class DonorsService {
       .get("http://localhost:3000/donors")
       .map((responseData) => responseData.json());
   }
+
+  getDonorsOfState(state): Observable<any[]>{
+    return this.http
+    .get("http://localhost:3000/donors/Illinois")
+    .map((responseData) => responseData.json());
+  }
+
+  getAmountOfState(donorsID): Observable<number> {
+    return this.http
+      .get("http://localhost:3000/donetions/"+donorsID)
+      .map((responseData) => responseData.json());
+  }
 } 

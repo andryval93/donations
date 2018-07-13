@@ -27,5 +27,5 @@
   <h2> Bar Chart</h2>
   <div id="bar_chart" [chartData]="bar_ChartData" [chartOptions]="bar_ChartOptions" chartType="BarChart" GoogleChart></div> -->
   <h2> Map Chart</h2>
-  <div id="map_chart" [chartData]="map_ChartData" [chartOptions]="map_ChartOptions" chartType="GeoChart" GoogleChart></div>
+  <div id="map_chart" [chartData]="map_ChartData" (click)="select($event)" [chartOptions]="map_ChartOptions" chartType="GeoChart" GoogleChart></div>
 </ion-content>

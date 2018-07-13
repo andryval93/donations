@@ -18,6 +18,7 @@ export class DonationsController {
   }
   @Get(':donorID')
   async amount(@Param('donorID')donorID): Promise<number> {
-    return this.donationService.amount(donorID);
+    let array = donorID.split(",");
+    return this.donationService.amount(array);
   }
 }

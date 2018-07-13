@@ -19,7 +19,7 @@ export class DonorsService {
 
   getDonorsOfState(state): Observable<any[]>{
     return this.http
-    .get("http://localhost:3000/donors/Illinois")
+    .get("http://localhost:3000/donors/"+state)
     .map((responseData) => responseData.json());
   }
 

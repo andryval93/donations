@@ -27,6 +27,7 @@ export class DonationService {
     for (let y = 1; y < donorsID.length + 1; y++) {
       await this.donetionModel.find({ 'Donor ID': donorsID[y] }, async (err, donor) => {
         for (let i = 0; i < donor.length; i++) {
+          await this.donetionModel.collection.createIndex({ "Donor ID": -1 })
           s = await this.donetionModel.find({ 'Donor ID': donor[i]['Donor ID'] });
           sum = sum + s[i]['Donation Amount'];
         }

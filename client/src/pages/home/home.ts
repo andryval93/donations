@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DonorsService } from '../../services/donors.service'
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -165,7 +166,7 @@ export class HomePage {
   map_ChartData = [];
   map_ChartOptions: any;
 
-  constructor(public navCtrl: NavController, public donorsService: DonorsService) {
+  constructor(public navCtrl: NavController, public donorsService: DonorsService,public alertCtrl: AlertController) {
     this.donorsService.getDonors()
       .subscribe(result => {
         this.map_ChartData = result;
@@ -180,8 +181,8 @@ export class HomePage {
   }
 
   select(e) {
-    console.log("Select", e.srcElement.logicalname);
-    this.donorsService.getDonorsOfState("Illinois")
+    console.log("Select", e.srcElement.logicalname.substring(17, 19));
+    this.donorsService.getDonorsOfState(e.srcElement.logicalname.substring(17, 19))
       .subscribe(result => {
         console.log("Result", result);
         let array = [];
@@ -191,6 +192,12 @@ export class HomePage {
         this.donorsService.getAmountOfState(array.join(","))
           .subscribe(result => {
             console.log("result", result)
+            const alert = this.alertCtrl.create({
+              title: 'Donazioni effettuate ',
+              subTitle: 'La somma donata in '+e.srcElement.logicalname.substring(17, 19)+" è di "+result+"$",
+              buttons: ['OK']
+            });
+            alert.present();
           });
       });
   }

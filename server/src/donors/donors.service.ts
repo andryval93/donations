@@ -9,6 +9,208 @@ import { Donations } from 'donations/interfaces/donations.interface';
 
 @Injectable()
 export class DonorsService {
+  statateNameAndCode = [
+    {
+      "name": "Alabama",
+      "abbreviation": "AL"
+    },
+    {
+      "name": "Alaska",
+      "abbreviation": "AK"
+    },
+    {
+      "name": "Arizona",
+      "abbreviation": "AZ"
+    },
+    {
+      "name": "Arkansas",
+      "abbreviation": "AR"
+    },
+    {
+      "name": "California",
+      "abbreviation": "CA"
+    },
+    {
+      "name": "Colorado",
+      "abbreviation": "CO"
+    },
+    {
+      "name": "Connecticut",
+      "abbreviation": "CT"
+    },
+    {
+      "name": "Delaware",
+      "abbreviation": "DE"
+    },
+    {
+      "name": "Florida",
+      "abbreviation": "FL"
+    },
+    {
+      "name": "Georgia",
+      "abbreviation": "GA"
+    },
+    {
+      "name": "Hawaii",
+      "abbreviation": "HI"
+    },
+    {
+      "name": "Idaho",
+      "abbreviation": "ID"
+    },
+    {
+      "name": "Illinois",
+      "abbreviation": "IL"
+    },
+    {
+      "name": "Indiana",
+      "abbreviation": "IN"
+    },
+    {
+      "name": "Iowa",
+      "abbreviation": "IA"
+    },
+    {
+      "name": "Kansas",
+      "abbreviation": "KS"
+    },
+    {
+      "name": "Kentucky",
+      "abbreviation": "KY"
+    },
+    {
+      "name": "Louisiana",
+      "abbreviation": "LA"
+    },
+    {
+      "name": "Maine",
+      "abbreviation": "ME"
+    },
+    {
+      "name": "Maryland",
+      "abbreviation": "MD"
+    },
+    {
+      "name": "Massachusetts",
+      "abbreviation": "MA"
+    },
+    {
+      "name": "Michigan",
+      "abbreviation": "MI"
+    },
+    {
+      "name": "Minnesota",
+      "abbreviation": "MN"
+    },
+    {
+      "name": "Mississippi",
+      "abbreviation": "MS"
+    },
+    {
+      "name": "Missouri",
+      "abbreviation": "MO"
+    },
+    {
+      "name": "Montana",
+      "abbreviation": "MT"
+    },
+    {
+      "name": "Nebraska",
+      "abbreviation": "NE"
+    },
+    {
+      "name": "Nevada",
+      "abbreviation": "NV"
+    },
+    {
+      "name": "New Hampshire",
+      "abbreviation": "NH"
+    },
+    {
+      "name": "New Jersey",
+      "abbreviation": "NJ"
+    },
+    {
+      "name": "New Mexico",
+      "abbreviation": "NM"
+    },
+    {
+      "name": "New York",
+      "abbreviation": "NY"
+    },
+    {
+      "name": "North Carolina",
+      "abbreviation": "NC"
+    },
+    {
+      "name": "North Dakota",
+      "abbreviation": "ND"
+    },
+    {
+      "name": "Ohio",
+      "abbreviation": "OH"
+    },
+    {
+      "name": "Oklahoma",
+      "abbreviation": "OK"
+    },
+    {
+      "name": "Oregon",
+      "abbreviation": "OR"
+    },
+    {
+      "name": "Pennsylvania",
+      "abbreviation": "PA"
+    },
+    {
+      "name": "Rhode Island",
+      "abbreviation": "RI"
+    },
+    {
+      "name": "South Carolina",
+      "abbreviation": "SC"
+    },
+    {
+      "name": "South Dakota",
+      "abbreviation": "SD"
+    },
+    {
+      "name": "Tennessee",
+      "abbreviation": "TN"
+    },
+    {
+      "name": "Texas",
+      "abbreviation": "TX"
+    },
+    {
+      "name": "Utah",
+      "abbreviation": "UT"
+    },
+    {
+      "name": "Vermont",
+      "abbreviation": "VT"
+    },
+    {
+      "name": "Virginia",
+      "abbreviation": "VA"
+    },
+    {
+      "name": "Washington",
+      "abbreviation": "WA"
+    },
+    {
+      "name": "West Virginia",
+      "abbreviation": "WV"
+    },
+    {
+      "name": "Wisconsin",
+      "abbreviation": "WI"
+    },
+    {
+      "name": "Wyoming",
+      "abbreviation": "WY"
+    }
+  ];
   constructor(@InjectModel('Donor') private readonly donorsModel: Model<Donors>) { }
 
   async create(createDonorsDto: CreateDonorsDto): Promise<Donors> {
@@ -18,210 +220,6 @@ export class DonorsService {
 
   async findAll(): Promise<any> {
 
-    let statateNameAndCode = [
-      {
-        "name": "Alabama",
-        "abbreviation": "AL"
-      },
-      {
-        "name": "Alaska",
-        "abbreviation": "AK"
-      },
-      {
-        "name": "Arizona",
-        "abbreviation": "AZ"
-      },
-      {
-        "name": "Arkansas",
-        "abbreviation": "AR"
-      },
-      {
-        "name": "California",
-        "abbreviation": "CA"
-      },
-      {
-        "name": "Colorado",
-        "abbreviation": "CO"
-      },
-      {
-        "name": "Connecticut",
-        "abbreviation": "CT"
-      },
-      {
-        "name": "Delaware",
-        "abbreviation": "DE"
-      },
-      {
-        "name": "Florida",
-        "abbreviation": "FL"
-      },
-      {
-        "name": "Georgia",
-        "abbreviation": "GA"
-      },
-      {
-        "name": "Hawaii",
-        "abbreviation": "HI"
-      },
-      {
-        "name": "Idaho",
-        "abbreviation": "ID"
-      },
-      {
-        "name": "Illinois",
-        "abbreviation": "IL"
-      },
-      {
-        "name": "Indiana",
-        "abbreviation": "IN"
-      },
-      {
-        "name": "Iowa",
-        "abbreviation": "IA"
-      },
-      {
-        "name": "Kansas",
-        "abbreviation": "KS"
-      },
-      {
-        "name": "Kentucky",
-        "abbreviation": "KY"
-      },
-      {
-        "name": "Louisiana",
-        "abbreviation": "LA"
-      },
-      {
-        "name": "Maine",
-        "abbreviation": "ME"
-      },
-      {
-        "name": "Maryland",
-        "abbreviation": "MD"
-      },
-      {
-        "name": "Massachusetts",
-        "abbreviation": "MA"
-      },
-      {
-        "name": "Michigan",
-        "abbreviation": "MI"
-      },
-      {
-        "name": "Minnesota",
-        "abbreviation": "MN"
-      },
-      {
-        "name": "Mississippi",
-        "abbreviation": "MS"
-      },
-      {
-        "name": "Missouri",
-        "abbreviation": "MO"
-      },
-      {
-        "name": "Montana",
-        "abbreviation": "MT"
-      },
-      {
-        "name": "Nebraska",
-        "abbreviation": "NE"
-      },
-      {
-        "name": "Nevada",
-        "abbreviation": "NV"
-      },
-      {
-        "name": "New Hampshire",
-        "abbreviation": "NH"
-      },
-      {
-        "name": "New Jersey",
-        "abbreviation": "NJ"
-      },
-      {
-        "name": "New Mexico",
-        "abbreviation": "NM"
-      },
-      {
-        "name": "New York",
-        "abbreviation": "NY"
-      },
-      {
-        "name": "North Carolina",
-        "abbreviation": "NC"
-      },
-      {
-        "name": "North Dakota",
-        "abbreviation": "ND"
-      },
-      {
-        "name": "Ohio",
-        "abbreviation": "OH"
-      },
-      {
-        "name": "Oklahoma",
-        "abbreviation": "OK"
-      },
-      {
-        "name": "Oregon",
-        "abbreviation": "OR"
-      },
-      {
-        "name": "Pennsylvania",
-        "abbreviation": "PA"
-      },
-      {
-        "name": "Rhode Island",
-        "abbreviation": "RI"
-      },
-      {
-        "name": "South Carolina",
-        "abbreviation": "SC"
-      },
-      {
-        "name": "South Dakota",
-        "abbreviation": "SD"
-      },
-      {
-        "name": "Tennessee",
-        "abbreviation": "TN"
-      },
-      {
-        "name": "Texas",
-        "abbreviation": "TX"
-      },
-      {
-        "name": "Utah",
-        "abbreviation": "UT"
-      },
-      {
-        "name": "Vermont",
-        "abbreviation": "VT"
-      },
-      {
-        "name": "Virginia",
-        "abbreviation": "VA"
-      },
-      {
-        "name": "Washington",
-        "abbreviation": "WA"
-      },
-      {
-        "name": "West Virginia",
-        "abbreviation": "WV"
-      },
-      {
-        "name": "Wisconsin",
-        "abbreviation": "WI"
-      },
-      {
-        "name": "Wyoming",
-        "abbreviation": "WY"
-      }
-    ];
-
-
     let result: Array<[
       any,
       any
@@ -230,17 +228,16 @@ export class DonorsService {
     result[0] = ['State', 'Donations'];
 
     await this.donorsModel.collection.createIndex({ "Donor State": -1 })
-    for (let i = 1; i < statateNameAndCode.length + 1; i++) {
-      await this.donorsModel.count({ 'Donor State': statateNameAndCode[i - 1].name }, (err, donors) => {
+    for (let i = 1; i < this.statateNameAndCode.length + 1; i++) {
+      await this.donorsModel.count({ 'Donor State': this.statateNameAndCode[i - 1].name }, (err, donors) => {
         result[i] = [
-          "US-" + statateNameAndCode[i - 1].abbreviation,
+          "US-" + this.statateNameAndCode[i - 1].abbreviation,
           donors
         ]
       })
     }
 
     return await result;
-
   }
   /*async countTheacherofCity(city: string): Promise<number> {
     return await this.donorsModel.count({ 'Donor City': city, 'Donor Is Teacher': "Yes" }).exec();
@@ -248,9 +245,16 @@ export class DonorsService {
   async AmoutState(state: string): Promise<any[]> {
     let n, result;
     let sum: number;
-    //console.log(state);
+    let stateName
+
+    for (let i = 1; i < this.statateNameAndCode.length + 1; i++) {
+      if(this.statateNameAndCode[i - 1].abbreviation === state){
+        stateName = this.statateNameAndCode[i - 1].name;
+      }
+    }
+    console.log(state,stateName);
     await this.donorsModel.collection.createIndex({ "Donor State": -1 })
-    return await this.donorsModel.find({ 'Donor State': state }, { _id: 0, 'Donor ID': 1 }).limit(1000).exec();
+    return await this.donorsModel.find({ 'Donor State': stateName }, { _id: 0, 'Donor ID': 1 }).limit(1000).exec();
   };
 
 

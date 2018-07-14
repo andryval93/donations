@@ -14,9 +14,36 @@ export class DonationService {
   }
 
   async findAll(): Promise<Donations[]> {
-    let a;
-    let i: number = 0
-    return await this.donetionModel.find().limit(100).exec();
+    // let a;
+    // let i: number = 0
+    // return await this.donetionModel.find().limit(100).exec();
+    let sc= this;
+    return await this.donetionModel.aggregate([
+      {
+        $group: {
+          _id: "report offerte",
+          OffertaMassima: {
+            $max: "$Donation Amount"
+          },
+          OffertaMinima: {
+            $min: "$Donation Amount"
+          },
+          OffertaMedia: {
+            $avg: "$Donation Amount"
+          },
+          OfferteTotali: {
+            $sum: "$Donation Amount"
+          }
+        }
+      }
+    ], function (err, result) {
+      // if (err) {
+      //     console.log(err);
+      //     return;
+      // }
+      console.log(result);
+      //return await sc.donetionModel.find().limit(1).exec();
+    })
   }
 
   async amount(donorsID): Promise<number> {

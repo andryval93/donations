@@ -28,4 +28,10 @@ export class DonorsService {
       .get("http://localhost:3000/donetions/"+donorsID)
       .map((responseData) => responseData.json());
   }
+
+  getValueDonetions(): Observable<any>{
+    return this.http
+      .get("http://localhost:3000/donetions/")
+      .map((responseData) => responseData.json());
+  }
 } 

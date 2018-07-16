@@ -8,22 +8,6 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid padding>
-    <ion-row>
-      <ion-col col-6>Offerta massima: </ion-col>
-      <ion-col col-6 *ngIf="gridItem !== undefined">{{gridItem.OffertaMassima}}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-6>Offerta minima</ion-col>
-      <ion-col col-6 *ngIf="gridItem !== undefined">{{gridItem.OffertaMinima}}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-6>Media delle offerte</ion-col>
-      <ion-col col-6 *ngIf="gridItem !== undefined">{{gridItem.OffertaMedia}}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-6>Offerte Totali</ion-col>
-      <ion-col col-6 *ngIf="gridItem !== undefined">{{gridItem.OfferteTotali}}</ion-col>
-    </ion-row>
-  </ion-grid>
+    <h2> Bar Chart</h2>
+    <div id="bar_chart" [chartData]="bar_ChartData" [chartOptions]="bar_ChartOptions" chartType="BarChart" GoogleChart></div>
 </ion-content>

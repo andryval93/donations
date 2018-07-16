@@ -18,7 +18,8 @@ export class DonationService {
     // let i: number = 0
     // return await this.donetionModel.find().limit(100).exec();
     let sc= this;
-    return await this.donetionModel.aggregate([
+    let r;
+    /*return await this.donetionModel.aggregate([
       {
         $group: {
           _id: "report offerte",
@@ -41,9 +42,44 @@ export class DonationService {
       //     console.log(err);
       //     return;
       // }
+      */
+     let i="";
+     for(let data=2012;data<=2019;data++){
+       if(data==2019){
+         i="";
+       }
+       else{
+       i=String(data);
+       }
+      r=r+await this.donetionModel.aggregate([
+        {
+          $match:{
+            "Donation Received Date":{$regex:(i)}
+          }
+        },{
+          $group: {
+            _id: "report "+i,
+            OffertaMassima: {
+              $max: "$Donation Amount"
+            },
+            OffertaMinima: {
+              $min: "$Donation Amount"
+            },
+            OffertaMedia: {
+              $avg: "$Donation Amount"
+            },
+            OfferteTotali: {
+              $sum: "$Donation Amount"
+            }
+          }
+        }
+      ], function (err, result) {
       console.log(result);
+      
       //return await sc.donetionModel.find().limit(1).exec();
     })
+  }
+    return r;
   }
 
   async amount(donorsID): Promise<number> {

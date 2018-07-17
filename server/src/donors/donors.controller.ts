@@ -16,10 +16,11 @@ export class DonorsController {
   async findAll(): Promise<Donors[]> {
     return this.donorsService.findAll();
   }
-  /*@Get(':city')
-  async CountTheacher(@Param ('city') city): Promise<number> {
-    return this.donorsService.countTheacherofCity(city);
-  }*/
+  @Get(':isTeacher/countTheacherofCity')
+  async CountTheacher(@Param ('isTeacher') isTeacher): Promise<number> {
+    return this.donorsService.countTheacher(isTeacher);
+  }
+
   @Get (':state')
   async AmoutState(@Param('state')state): Promise<any>{
     return this.donorsService.AmoutState(state);

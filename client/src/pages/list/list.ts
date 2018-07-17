@@ -10,7 +10,7 @@ import { LoadingController } from 'ionic-angular';
 export class ListPage {
   gridItem;
   loader;
-  public bar_ChartData = [];
+  bar_ChartData = [['Anni', 'Donazioni']];
 
   public bar_ChartOptions = {
   };
@@ -21,11 +21,10 @@ export class ListPage {
     this.donorsService.getValueDonetions()
       .subscribe(result => {
         console.log("Result", result);
-        this.bar_ChartData = [
-          ['Anni', 'Donazioni'],
-          ['2013', result[0][0].OfferteTotali],
-          ['2014', result[1][0].OfferteTotali],
-          ['2015', result[2][0].OfferteTotali]];
+        for(let i=0;i<result.length;i++){
+          let year = (2013+i)
+          this.bar_ChartData.push([""+year,result[i][0].OfferteTotali])
+        }
 
         this.bar_ChartOptions = {
           title: 'Donazioni negli anni',

@@ -34,4 +34,10 @@ export class DonorsService {
       .get("http://localhost:3000/donetions/")
       .map((responseData) => responseData.json());
   }
+
+  getNumberOfTeacher(isTeacher): Observable<any>{
+    return this.http
+      .get("http://localhost:3000/donors/"+isTeacher+"/countTheacherofCity")
+      .map((responseData) => responseData.json());
+  }
 } 

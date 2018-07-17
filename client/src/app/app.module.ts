@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import {GoogleChart} from '../directives/angular2-google-chart.directive';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { TeacherPage } from '../pages/teacher/teacher';
 import { ListPage } from '../pages/list/list';
 import { DonorsService } from '../services/donors.service'
 import { HttpModule } from '@angular/http'; 
@@ -16,6 +17,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     GoogleChart,
+    TeacherPage,
     ListPage
   ],
   imports: [
@@ -27,6 +29,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
+    TeacherPage,
     ListPage
   ],
   providers: [

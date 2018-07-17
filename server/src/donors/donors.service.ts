@@ -239,9 +239,11 @@ export class DonorsService {
 
     return await result;
   }
-  /*async countTheacherofCity(city: string): Promise<number> {
-    return await this.donorsModel.count({ 'Donor City': city, 'Donor Is Teacher': "Yes" }).exec();
-  }*/
+  
+  async countTheacher(isTeacher: string): Promise<number> {
+    return await this.donorsModel.count({ 'Donor Is Teacher': isTeacher }).exec();
+  }
+
   async AmoutState(state: string): Promise<any[]> {
     let n, result;
     let sum: number;
